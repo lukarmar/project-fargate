@@ -1,0 +1,1 @@
+Um fargate específico precisa rodar dentro de uma vpc. Dentro d euma nuvem provada para fazer toda manipulação dos seus arquivos

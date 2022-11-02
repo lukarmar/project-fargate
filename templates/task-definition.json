@@ -1,0 +1,30 @@
+{
+  "family": "process-data",
+  "networkMode": "awsvpc",
+  "taskRoleArn": "arn:aws:iam::469324726124:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::469324726124:role/ecsTaskExecutionRole",
+  "cpu": "256",
+  "memory": "512",
+  "requiresCompatibilities": [
+      "FARGATE"
+  ],
+  "containerDefinitions": [
+      {
+          "name": "process-data",
+          "image": "469324726124.dkr.ecr.us-east-1.amazonaws.com/process-data",
+          "essential": true,
+          "environment":[{
+              "name": "AWS_ENV_PATH",
+              "value": "/prod/process-big-data/"
+          }],
+          "logConfiguration": {
+              "logDriver": "awslogs",
+              "options": {
+                  "awslogs-group": "/ecs/process-big-data",
+                  "awslogs-region": "us-east-1",
+                  "awslogs-stream-prefix": "process-data"
+              }
+          }
+      }
+  ]
+}
